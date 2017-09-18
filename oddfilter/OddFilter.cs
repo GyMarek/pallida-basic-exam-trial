@@ -17,10 +17,24 @@ namespace OddFilter
             Console.ReadLine();
         }
 
+        private static List<int> OddFilter(List<int> list)
+        {
+            foreach (int elem in list)
+            {
+                if (elem % 2 != 0)
+                {
+                    list.Add(elem);
+                }
+            }
+            return new List<int>(list);
+        }
+
+
         private static void PrintList(List<int> list)
         {
             foreach (int element in list)
             {
+                if (element % 2 == 0)
                 Console.Write("{0} ", element);
             }
         }
