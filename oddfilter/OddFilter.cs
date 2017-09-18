@@ -1,42 +1,27 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace OddFilter
+namespace NameFromEmail
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Create an OddFilter function that takes a list as a parameter,
-            // and returns a new list with every odd element from the orignal list
-            List<int> oddElements = OddFilter(new List<int> { 1, 2, 3, 4, 5 });
-
-            // In case of the example input above, the given PrintList function should print 1 3 5 
-            PrintList(oddElements);
-
+            // Create a function that takes an email address as input in the following format: firstName.lastName@exam.com
+            //and returns a string that represents the user name in the following format: lastName firstName
+            //example: "elek.viz@exam.com" for this input the output should be: "Viz Elek"
+            //accents does not matter 
+            Console.WriteLine(NameFromEmail("elek.viz@exam.com"));
             Console.ReadLine();
         }
 
-        private static List<int> OddFilter(List<int> list)
+        private static string NameFromEmail(string v)
         {
-            foreach (int elem in list)
-            {
-                if (elem % 2 != 0)
-                {
-                    list.Add(elem);
-                }
-            }
-            return new List<int>(list);
+            string[] nameStringArray = v.Split('@')[0].Split('.');
+
+            return $"{nameStringArray[1]} {nameStringArray[0]}";
         }
 
-
-        private static void PrintList(List<int> list)
-        {
-            foreach (int element in list)
-            {
-                if (element % 2 == 0)
-                Console.Write("{0} ", element);
-            }
-        }
     }
 }

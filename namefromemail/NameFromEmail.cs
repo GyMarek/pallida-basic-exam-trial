@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NameFromEmail
 {
@@ -13,5 +15,14 @@ namespace NameFromEmail
             Console.WriteLine(NameFromEmail("elek.viz@exam.com"));
             Console.ReadLine();
         }
+
+        private static string NameFromEmail(string i)
+        {
+            string[] nameArray = i.Split('@')[0].Split('.');
+
+            return nameArray[1] + " " + nameArray[0];
+        }
+
     }
+
 }
